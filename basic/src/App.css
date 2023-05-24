@@ -1,0 +1,16 @@
+
+.form-control
+{
+     margin-top: 0.5rem;
+}
+#btn_add
+{
+position: absolute;
+right: 2rem;
+top: 11rem;
+border-radius: 50%;
+}
+.modal-content
+{
+padding-bottom: 0.9rem;
+}
