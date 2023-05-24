@@ -7,6 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [listData, setListData] = useState([]);
+  const [show, setShow] = useState(false);
+
+
+    // Xử lý toggle form Add to do
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   const handleUpdateForm = (data) => {
     if (!data.id) {
       // id undefined
@@ -17,6 +23,7 @@ function App() {
       }
       setListData([data]);
     }
+
   };
   //Xử lý delete
   const handleDeleteForm = (id) => {
@@ -27,9 +34,12 @@ function App() {
   // console.log(listData,333);
   return (
     <>
-      <Header />
+      <Header handleShow={handleShow} />
       <ListNote listData={listData} handleDeleteForm={handleDeleteForm} />
-      <FormUpadate handleUpdateForm={handleUpdateForm} />
+      <FormUpadate handleUpdateForm={handleUpdateForm} 
+      show={show}
+      handleClose={handleClose}
+      />
     </>
   );
 }

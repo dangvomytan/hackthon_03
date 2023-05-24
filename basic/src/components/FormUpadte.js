@@ -15,14 +15,16 @@ function FormUpadate(props) {
     // Truyền dữ liệu cho app
     props.handleUpdateForm({ ...formData });
 
-    // Xóa dữ liệu form
+     props.handleClose();
   };
   console.log(formData);
   return (
-    <div
-      className="modal show"
-      style={{ display: "block", position: "initial" }}
-    >
+     <>     <Modal
+     show={props.show}
+     onHide={props.handleClose}
+     backdrop="static"
+     keyboard={false}
+   >
       <Modal.Dialog>
         <Form onSubmit={handleSubmitForm}>
           <Modal.Body>
@@ -52,7 +54,8 @@ function FormUpadate(props) {
           </Modal.Body>
         </Form>
       </Modal.Dialog>
-    </div>
+    </Modal></>
+
   );
 }
 export default FormUpadate;
