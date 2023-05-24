@@ -59,15 +59,16 @@ function App() {
     setPlayer(listData.length);
   }, [listData]);
 
-  // useEffect(() => {
-  //   listData.map((item) => 
-  //   {
-  //     setPlayer(player+item.point);
-  //   }
-  // }, [listData]);
+  useEffect(() => {
+    let totalPoints = 0;
+    listData.forEach((item) => {
+      totalPoints += item.point;
+    });
+    setTotal(totalPoints);
+  }, [listData]);
   return (
     <Container className="contai">
-      <Header player={player} />
+      <Header player={player} total={total}/>
       <ListPlayer
         listData={listData}
         handleDeleteForm={handleDeleteForm}
